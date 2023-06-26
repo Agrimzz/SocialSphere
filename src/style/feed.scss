@@ -1,0 +1,122 @@
+@import "./root.scss";
+
+.feed{
+    display: flex;
+    overflow-y: scroll;
+    height: 100vh;
+
+    .posts{
+        margin: 0 auto;
+        width: 100%;
+        padding: 50px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .makePosts{
+            width: 100%;
+            background-color: $primary;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 15px;
+
+            input{
+                width: 90%;
+                outline: none;
+                border: none;
+                padding: 10px 10px;
+                font-size: $mdFont;
+            }
+            
+        }
+
+        .post{
+            background-color: $primary;
+            width: 100%;
+            border-radius: 15px;
+            display: flex;
+            margin-top: 30px;
+
+            .postTexts{
+                padding: 20px 20px 20px 70px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .pRow1{
+                    display: flex;
+                    gap: 30px;
+                    
+                    h3{
+                        font-size: $smallFont;
+                    }
+    
+                    .postTime{
+                        display: flex;
+                        align-items: center;
+                        width: 100px;
+                        gap: 5px;
+
+                        p{
+                            font-size: $xsFont;
+                        }
+                    }
+
+                    .comm{
+                        color: $secondary;
+                    }
+                }
+
+                .pRow2{
+
+                    p{
+                        font-size: $mdFont;
+                    }
+                }
+
+                .pRow3{
+                    display: flex;
+                    gap: 50px;
+                    font-size: $xsFont;
+
+                    .vote{
+                        width: 80px;
+                        display: flex;
+                        justify-content: space-between;
+                        background-color: $secondary;
+                        padding: 10px;
+                        color: #fff;
+                        border-radius: 10px;
+
+                        .like{
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                        }
+                    }
+
+                    .comment{
+                        width: 120px;
+                        display: flex;
+                        justify-content: space-between;
+                        background-color: $secondary;
+                        padding: 10px;
+                        color: #fff;
+                        border-radius: 10px;
+                        
+                    }
+                }
+                
+
+            }
+
+            .postImage{
+                justify-self: flex-end;
+            }
+
+        }
+
+        
+    }
+}
