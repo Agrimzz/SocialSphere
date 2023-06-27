@@ -55,6 +55,22 @@
             border: 1px solid $secondary;
         }
 
+        .members{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+
+            .amt{
+                color: $secondary;
+            }
+            
+            p{
+                font-size: $xsFont;
+                margin-top: 0;
+            }
+        }
+
     }
 
     .tab2{
