@@ -12,6 +12,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 30px;
 
         .makePosts{
             width: 100%;
@@ -30,16 +31,18 @@
             }
             
         }
-
+        
         .post{
             background-color: $primary;
             width: 100%;
             border-radius: 15px;
             display: flex;
-            margin-top: 30px;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 0;
 
             .postTexts{
-                padding: 20px 20px 20px 70px;
+                padding: 20px 20px 20px 40px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -49,17 +52,19 @@
                     gap: 30px;
                     
                     h3{
+                        color: #000;
                         font-size: $smallFont;
                     }
     
                     .postTime{
                         display: flex;
                         align-items: center;
-                        width: 100px;
+                        width: 125px;
                         gap: 5px;
 
                         p{
                             font-size: $xsFont;
+                            color: #000;
                         }
                     }
 
@@ -70,8 +75,9 @@
 
                 .pRow2{
 
-                    p{
-                        font-size: $mdFont;
+                    h2{
+                        color: #000;
+                        font-weight: 500;
                     }
                 }
 
@@ -112,7 +118,17 @@
             }
 
             .postImage{
-                justify-self: flex-end;
+                width: 300px;
+                height: 200px;
+                border-radius: 0 15px 15px 0;
+
+                img{
+                    padding: 0;
+                    border-radius: 0 15px 15px 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
 
         }

@@ -1,17 +1,12 @@
 import './App.css'
-import Login from './components/Login'
-import NewsFeed from './components/NewsFeed'
-import PostTab from './components/PostTab'
-import Register from './components/Register'
+import CreatePost from './components/CreatePost'
+import Pages from './components/Pages'
 
 function App() {
 
   return (
     <div>
-      {/* <Register /> */}
-      {/* <Login /> */}
-      {/* <NewsFeed /> */}
-      <PostTab />
+      <Pages />
     </div>
   )
 }

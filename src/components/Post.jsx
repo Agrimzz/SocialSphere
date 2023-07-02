@@ -6,23 +6,66 @@ import postpic from "../images/post.png";
 import like from "../images/like.svg"
 import dislike from "../images/dislike.svg"
 import comment from "../images/comment.svg"
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
+import Rightbar from "./Rightbar";
 
 function Post() {
+    const [data, setData] = useState([])
+    const navigate = useNavigate()
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const pid = searchParams.get("criteria");
+    console.log(pid)
+    let formData = new FormData()
+    formData.append('pid', pid)
+
+    axios.post("http://localhost/SocialSphere/viewpost.php", formData)
+    .then((response) => {
+        console.log(response.data)
+        setData(response.data)
+    })
+
+    useEffect(() =>{
+        if (sessionStorage.getItem('uid') === null){
+        
+            alert ('Login Required')
+            navigate('/login')
+        }
+
+    },[])
+
+    const created_at = new Date(data.time)
+                        const month_num = created_at.getMonth()
+                        const day = created_at.getDate()
+                        const year = created_at.getFullYear()
+                        const hour = created_at.getHours()
+                        const min =  created_at.getMinutes()
+                        const monthNames = [
+                            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                        ]
+                        const month = monthNames[month_num]
     return(
         <div className="mainPost">
             <div className="postbox">
                 <div className="post">
                     <div className="pRow1">
-                        <h3>User</h3>
+                        <h3>{ data.username }</h3>
                         <div className="postTime">
                             <img src={circle} alt="" />
-                            <p>an hour ago</p>
+                            <p><strong>{ hour }:{ min }</strong> - { day } { month } { year } </p>
                         </div>
+                        <h3 className="comm">{ data.community }</h3>
                     </div>
                     
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae vitae sequi et illo enim, consequatur aspernatur eum. Nam dolores dicta suscipit cum. Deserunt, consequuntur? Atque consequuntur eligendi accusantium ab ducimus?</p>
+                    <h2>{ data.title }</h2>
+                    <p>{ data.body }</p>
 
-                    <img src={postpic} alt=""  className="p-img"/>
+                    <img src={`http://localhost/SocialSphere/images/${data.image}`}  alt=""  className="p-img"/>
 
                     <div className="pRow3">
                         <div className="vote">
@@ -62,7 +105,7 @@ function Post() {
                     </div>    
                 </div>
             </div>
-            <PostSidebar />
+            <Rightbar />
             
         </div>
     )
