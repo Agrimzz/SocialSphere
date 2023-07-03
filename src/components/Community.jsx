@@ -1,44 +1,44 @@
-import "../style/feed.scss"
+import Navbar from "./Navbar"
 import Rightbar from "./Rightbar"
-import image from "../images/image.svg"
+import "../style/feed.scss"
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import circle from "../images/circle.svg"
-// import img1 from "../images/img1.png"
 import like from "../images/like.svg"
 import dislike from "../images/dislike.svg"
 import comment from "../images/comment.svg"
-import axios from "axios"
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 
-function Feed() {
+function Community() {
+  const navigate = useNavigate()
   const [data, setData] = useState([])
+  const searchParams = new URLSearchParams(location.search)
+  const cid = searchParams.get("criteria")
+  let formData = new FormData()
+  formData.append("cid", cid)
+  formData.append("uid", sessionStorage.getItem("uid"))
 
   useEffect(() => {
-    const formData = new FormData()
-    formData.append("uid", sessionStorage.getItem("uid"))
     axios
-      .post("http://localhost/SocialSphere/post.php", formData)
+      .post("http://localhost/SocialSphere/communitypost.php", formData)
       .then((response) => {
+        console.log(response.data)
         if (response.data.success) {
-          setData(response.data)
+          setData(response.data.data)
+        } else {
+          alert("invalid")
+          navigate("/listcommunity")
         }
       })
   }, [])
-
-  function openForm() {
-    var element = document.getElementById("invis")
-    element.style.display = "flex"
-  }
-
   return (
-    <div>
+    <>
+      <Navbar />
       <div className="feed">
         <div className="posts">
-          <div className="makePosts" onClick={openForm}>
-            {/* <div className="makePosts"> */}
-            <input type="text" placeholder="Write Something" readOnly />
-            <img src={image} alt="" />
-            {/* </div> */}
+          <div className="chead">
+            {data.length > 0 && <h2 className="title">{data[0].community}</h2>}
+            <button>Joined</button>
           </div>
 
           {data.map((item) => {
@@ -115,8 +115,8 @@ function Feed() {
         </div>
         <Rightbar />
       </div>
-    </div>
+    </>
   )
 }
 
-export default Feed
+export default Community

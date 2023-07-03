@@ -1,138 +1,214 @@
 @import "./root.scss";
 
-.feed{
-    display: flex;
-    overflow-y: scroll;
-    height: 100vh;
+.feed {
+  display: flex;
+  overflow-y: scroll;
+  height: 100vh;
 
-    .posts{
-        margin: 0 auto;
-        width: 100%;
-        padding: 50px 30px;
+  .posts {
+    margin: 0 auto;
+    width: 100%;
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    .makePosts {
+      width: 100%;
+      background-color: $primary;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 15px;
+
+      input {
+        width: 90%;
+        outline: none;
+        border: none;
+        padding: 10px 10px;
+        font-size: $mdFont;
+      }
+    }
+
+    .post {
+      background-color: $primary;
+      width: 100%;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 0;
+
+      .postTexts {
+        padding: 20px 20px 20px 40px;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+
+        .pRow1 {
+          display: flex;
+          gap: 30px;
+
+          h3 {
+            color: #000;
+            font-size: $smallFont;
+          }
+
+          .postTime {
+            display: flex;
+            align-items: center;
+            width: 125px;
+            gap: 5px;
+
+            p {
+              font-size: $xsFont;
+              color: #000;
+            }
+          }
+
+          .comm {
+            color: $secondary;
+          }
+        }
+
+        .pRow2 {
+          h2 {
+            color: #000;
+            font-weight: 500;
+          }
+        }
+
+        .pRow3 {
+          display: flex;
+          gap: 50px;
+          font-size: $xsFont;
+
+          .vote {
+            width: 80px;
+            display: flex;
+            justify-content: space-between;
+            background-color: $secondary;
+            padding: 10px;
+            color: #fff;
+            border-radius: 10px;
+
+            .like {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+            }
+          }
+
+          .comment {
+            width: 120px;
+            display: flex;
+            justify-content: space-between;
+            background-color: $secondary;
+            padding: 10px;
+            color: #fff;
+            border-radius: 10px;
+          }
+        }
+      }
+
+      .postImage {
+        width: 300px;
+        height: 200px;
+        border-radius: 0 15px 15px 0;
+
+        img {
+          padding: 0;
+          border-radius: 0 15px 15px 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      gap: 30px;
+
+      .communitylist {
+        width: 100%;
+        background-color: $primary;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
         gap: 30px;
+        border-radius: 15px;
+        padding: 20px;
+        color: #000;
 
-        .makePosts{
-            width: 100%;
-            background-color: $primary;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            border-radius: 15px;
+        .listcol {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          width: 120px;
+          align-items: center;
+          justify-content: center;
 
-            input{
-                width: 90%;
-                outline: none;
-                border: none;
-                padding: 10px 10px;
-                font-size: $mdFont;
-            }
-            
-        }
-        
-        .post{
-            background-color: $primary;
-            width: 100%;
-            border-radius: 15px;
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            padding: 0;
+          li {
+            font-size: $largeFont;
+            color: #000;
+          }
 
-            .postTexts{
-                padding: 20px 20px 20px 40px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-
-                .pRow1{
-                    display: flex;
-                    gap: 30px;
-                    
-                    h3{
-                        color: #000;
-                        font-size: $smallFont;
-                    }
-    
-                    .postTime{
-                        display: flex;
-                        align-items: center;
-                        width: 125px;
-                        gap: 5px;
-
-                        p{
-                            font-size: $xsFont;
-                            color: #000;
-                        }
-                    }
-
-                    .comm{
-                        color: $secondary;
-                    }
-                }
-
-                .pRow2{
-
-                    h2{
-                        color: #000;
-                        font-weight: 500;
-                    }
-                }
-
-                .pRow3{
-                    display: flex;
-                    gap: 50px;
-                    font-size: $xsFont;
-
-                    .vote{
-                        width: 80px;
-                        display: flex;
-                        justify-content: space-between;
-                        background-color: $secondary;
-                        padding: 10px;
-                        color: #fff;
-                        border-radius: 10px;
-
-                        .like{
-                            display: flex;
-                            align-items: center;
-                            gap: 5px;
-                        }
-                    }
-
-                    .comment{
-                        width: 120px;
-                        display: flex;
-                        justify-content: space-between;
-                        background-color: $secondary;
-                        padding: 10px;
-                        color: #fff;
-                        border-radius: 10px;
-                        
-                    }
-                }
-                
-
-            }
-
-            .postImage{
-                width: 300px;
-                height: 200px;
-                border-radius: 0 15px 15px 0;
-
-                img{
-                    padding: 0;
-                    border-radius: 0 15px 15px 0;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-
+          button {
+            padding: 10px;
+            background-color: $secondary;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            cursor: crosshair;
+          }
         }
 
-        
+        .memberscount {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border-left: 1px solid #000;
+          padding: 5px 15px;
+
+          p {
+            font-size: $xsFont;
+          }
+
+          .count {
+            font-size: $largeFont;
+            color: $secondary;
+            font-weight: 500;
+          }
+        }
+      }
     }
+
+    .chead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 50px;
+
+      .title {
+        align-self: start;
+        font-size: $xlFont;
+        color: $secondary;
+      }
+
+      button {
+        padding: 10px;
+        background-color: $secondary;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    }
+  }
 }
