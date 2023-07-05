@@ -7,17 +7,29 @@ import { Link } from "react-router-dom"
 
 function ListCommunity() {
   const [data, setData] = useState([])
+  const uid = sessionStorage.getItem("uid")
+  const [joinedCommunities, setJoinedCommunities] = useState([])
   useEffect(() => {
     axios
       .post("http://localhost/SocialSphere/getcommunity.php")
       .then((response) => {
         setData(response.data)
       })
+
+    let formData = new FormData()
+    formData.append("uid", uid)
+
+    axios
+      .post("http://localhost/SocialSphere/uploadcommunity.php", formData)
+      .then((response) => {
+        setJoinedCommunities(response.data)
+        console.log(response.data)
+      })
   }, [])
 
   function joinCommunity(cid) {
     let formData = new FormData()
-    formData.append("uid", sessionStorage.getItem("uid"))
+    formData.append("uid", uid)
     formData.append("cid", cid)
     axios
       .post("http://localhost/SocialSphere/joincommunity.php", formData)
@@ -43,9 +55,24 @@ function ListCommunity() {
                       {item.title}
                     </li>
 
-                    <button onClick={() => joinCommunity(item.cid)}>
+                    {/* <button onClick={() => joinCommunity(item.cid)}>
                       Join
-                    </button>
+                    </button> */}
+
+                    {joinedCommunities &&
+                    Array.isArray(joinedCommunities) &&
+                    joinedCommunities.includes(item.cid) ? (
+                      <button disabled className="btn-joined">
+                        Joined
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => joinCommunity(item.cid)}
+                        className="btn-join"
+                      >
+                        Join
+                      </button>
+                    )}
                   </div>
                   <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.

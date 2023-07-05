@@ -1,122 +1,120 @@
 @import "./root.scss";
 
-.rightbar{
-    width: 25%;
-    height: 100vh;
-    padding: 50px 30px;
-    // background-color: $primary;
-    float: right;
+.rightbar {
+  width: 25%;
+  height: 100vh;
+  padding: 50px 30px;
+  // background-color: $primary;
+  float: right;
 
-    .user{
-        font-size: $largeFont;  
-        width: 300px; 
+  .user {
+    font-size: $largeFont;
+    width: 300px;
 
-        p{
-            font-weight: 800;
-        }
+    p {
+      font-weight: 800;
+    }
+  }
+
+  .lout {
+    color: $secondary;
+    font-size: $mdFont;
+    margin-left: 20px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .tab1 {
+    width: 300px;
+    background-color: $primary;
+    border-radius: 15px;
+    padding: 20px 15px;
+    margin-top: 50px;
+
+    h2 {
+      font-size: $largeFont;
+      font-weight: 500;
     }
 
-    .lout{
+    p {
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 10px;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .btn1 {
+      background-color: $secondary;
+      color: #fff;
+    }
+
+    .btn2 {
+      background-color: #fff;
+      color: $secondary;
+      border: 1px solid $secondary;
+    }
+
+    .members {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+
+      .amt {
         color: $secondary;
-        font-size: $mdFont;
-        margin-left: 20px;
-        cursor: pointer;
-        font-weight: 500;
+      }
+
+      p {
+        font-size: $xsFont;
+        margin-top: 0;
+      }
+    }
+  }
+
+  .tab2 {
+    width: 300px;
+    background-color: $primary;
+    border-radius: 15px;
+    padding: 20px 15px;
+    margin-top: 50px;
+
+    h2 {
+      font-size: $largeFont;
+      font-weight: 500;
     }
 
-    .tab1{
-        width: 300px;
-        background-color: $primary;
-        border-radius: 15px;
-        padding: 20px 15px;
-        margin-top: 50px;
-
-        h2{
-            font-size: $largeFont;
-            font-weight: 500;
-        }
-
-        p{
-            font-size: 14px;
-            margin-top: 20px;
-        }
-
-        button{
-            width: 100%;
-            margin-top: 10px;
-            border: none;
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 14px;
-        }
-
-        .btn1{
-            background-color: $secondary;
-            color: #fff;
-        }
-
-        .btn2{
-            background-color: #fff;
-            color: $secondary;
-            border: 1px solid $secondary;
-        }
-
-        .members{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 15px;
-
-            .amt{
-                color: $secondary;
-            }
-            
-            p{
-                font-size: $xsFont;
-                margin-top: 0;
-            }
-        }
-
+    ul {
+      list-style: none;
+      font-size: 14px;
+      margin-top: 15px;
+      color: $secondary;
     }
 
-    .tab2{
-        width: 300px;
-        background-color: $primary;
-        border-radius: 15px;
-        padding: 20px 15px;
-        margin-top: 50px;
-
-        h2{
-            font-size: $largeFont;
-            font-weight: 500;
-        }
-
-        ul{
-            list-style: none;
-            font-size: 14px;
-            margin-top: 15px;
-            color: $secondary;
-        }
-        
-        li{
-            margin-top: 5px;
-        }
+    li {
+      margin-top: 5px;
     }
-    
-    .tab3{
-        width: 300px;
-        background-color: $primary;
-        border-radius: 15px;
-        padding: 15px ;
-        margin-top: 20px;
-        font-size: 14px;
-        color: $secondary;
-    }
+  }
+
+  .tab3 {
+    width: 300px;
+    background-color: $primary;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: $secondary;
+  }
 }
 
-@media only screen and (max-width : 1400px){
-
-    .rightbar{
-        display: none;
-    }
+@media only screen and (max-width: 1200px) {
+  .rightbar {
+    display: none;
+  }
 }

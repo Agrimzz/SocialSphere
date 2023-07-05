@@ -7,7 +7,7 @@
 
   .posts {
     margin: 0 auto;
-    width: 100%;
+    width: 70%;
     padding: 50px 30px;
     display: flex;
     flex-direction: column;
@@ -31,6 +31,35 @@
       }
     }
 
+    .search {
+      width: 100%;
+      background-color: $primary;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 15px;
+
+      .searchbox {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        padding: 5px 10px;
+
+        img {
+          width: 30px;
+        }
+        input {
+          width: 100%;
+          outline: none;
+          border: none;
+          padding: 10px 10px;
+          font-size: $mdFont;
+        }
+      }
+    }
+
     .post {
       background-color: $primary;
       width: 100%;
@@ -44,7 +73,8 @@
         padding: 20px 20px 20px 40px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        gap: 50px;
+        // justify-content: space-between;
 
         .pRow1 {
           display: flex;
@@ -157,7 +187,7 @@
             color: #000;
           }
 
-          button {
+          .btn-join {
             padding: 10px;
             background-color: $secondary;
             color: #fff;
@@ -165,6 +195,14 @@
             cursor: pointer;
             border-radius: 5px;
             cursor: crosshair;
+          }
+
+          .btn-joined {
+            padding: 10px;
+            background-color: #fff;
+            color: #000;
+            border: 1px solid $secondary;
+            border-radius: 5px;
           }
         }
 
@@ -209,6 +247,14 @@
         cursor: pointer;
         border-radius: 5px;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .feed {
+    .posts {
+      width: 100%;
     }
   }
 }

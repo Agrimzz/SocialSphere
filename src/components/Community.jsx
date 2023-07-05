@@ -31,6 +31,23 @@ function Community() {
         }
       })
   }, [])
+
+  function leaveCommunity() {
+    axios
+      .post("http://localhost/SocialSphere/leavecommunity.php", formData)
+      .then((response) => {
+        console.log(response.data)
+        if (response.data.success) {
+          navigate("/listcommunity")
+        } else {
+          alert("Failed to leave the community")
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+        alert("An error occurred while leaving the community")
+      })
+  }
   return (
     <>
       <Navbar />
@@ -39,6 +56,7 @@ function Community() {
           <div className="chead">
             {data.length > 0 && <h2 className="title">{data[0].community}</h2>}
             <button>Joined</button>
+            <button onClick={leaveCommunity}>Leave</button>
           </div>
 
           {data.map((item) => {

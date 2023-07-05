@@ -1,17 +1,18 @@
 import "../style/feed.scss"
 import Rightbar from "./Rightbar"
-import image from "../images/image.svg"
+import search from "../images/search.svg"
 import circle from "../images/circle.svg"
-// import img1 from "../images/img1.png"
 import like from "../images/like.svg"
 import dislike from "../images/dislike.svg"
 import comment from "../images/comment.svg"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import Navbar from "./Navbar"
 
-function Feed() {
+function Search() {
   const [data, setData] = useState([])
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
     const formData = new FormData()
@@ -26,23 +27,27 @@ function Feed() {
       })
   }, [])
 
-  function openForm() {
-    var element = document.getElementById("invis")
-    element.style.display = "flex"
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value)
   }
+
+  const filteredData = data.filter((item) =>
+    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   return (
     <div>
+      <Navbar />
       <div className="feed">
         <div className="posts">
-          <div className="makePosts" onClick={openForm}>
-            {/* <div className="makePosts"> */}
-            <input type="text" placeholder="Write Something" readOnly />
-            <img src={image} alt="" />
-            {/* </div> */}
+          <div className="search">
+            <div className="searchbox">
+              <img src={search} alt="" />
+              <input type="text" placeholder="Search" onChange={handleSearch} />
+            </div>
           </div>
 
-          {data.map((item) => {
+          {filteredData.map((item) => {
             const created_at = new Date(item.time)
             const month_num = created_at.getMonth()
             const day = created_at.getDate()
@@ -88,7 +93,7 @@ function Feed() {
                     <div className="pRow2">
                       <h2>{item.title}</h2>
                     </div>
-                    {/* <div className="pRow3">
+                    <div className="pRow3">
                       <div className="vote">
                         <div className="like">
                           <img src={like} alt="" />
@@ -100,7 +105,7 @@ function Feed() {
                         <img src={comment} alt="" />
                         <p>12 comments</p>
                       </div>
-                    </div> */}
+                    </div>
                   </div>
 
                   <div className="postImage">
@@ -120,4 +125,4 @@ function Feed() {
   )
 }
 
-export default Feed
+export default Search

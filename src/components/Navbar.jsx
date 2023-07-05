@@ -16,11 +16,12 @@ function Navbar() {
           <p>Home</p>
         </div>
       </Link>
-
-      <div className="icons">
-        <img src={search} alt="" />
-        <p>Search</p>
-      </div>
+      <Link to="/search">
+        <div className="icons">
+          <img src={search} alt="" />
+          <p>Search</p>
+        </div>
+      </Link>
 
       <Link to={"/listcommunity"}>
         <div className="icons">

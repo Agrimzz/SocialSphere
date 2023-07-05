@@ -16,9 +16,10 @@ function CreatePost() {
     const formData = new FormData()
     formData.append("uid", sessionStorage.getItem("uid"))
     axios
-      .post("http://localhost/SocialSphere/getcommunity.php", formData)
+      .post("http://localhost/SocialSphere/checkcommunity.php", formData)
       .then((response) => {
         setCommunities(response.data)
+        // console.log(response.data)
       })
       .catch((error) => {
         console.log(error)
@@ -35,8 +36,11 @@ function CreatePost() {
     formData.append("cname", selectedCommunity)
     axios
       .post("http://localhost/SocialSphere/upload.php", formData)
-      .then(() => {
-        navigate("/")
+      .then((response) => {
+        console.log(response.data)
+
+        // navigate("/")
+        // window.location.reload()
       })
   }
 
@@ -57,11 +61,13 @@ function CreatePost() {
                 name="community"
                 onChange={(e) => setSelectedCommunity(e.target.value)}
               >
-                {communities.map((community, index) => (
-                  <option key={index} value={community.title}>
-                    {community.title}
-                  </option>
-                ))}
+                {Array.isArray(communities) &&
+                  communities.length > 0 &&
+                  communities.map((community, index) => (
+                    <option key={index} value={community.title}>
+                      {community.title}
+                    </option>
+                  ))}
               </select>
             </div>
 

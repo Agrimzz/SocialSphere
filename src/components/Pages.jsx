@@ -6,6 +6,7 @@ import PostTab from "./PostTab"
 import CreatePost from "./CreatePost"
 import ListCommunity from "./ListCommunity"
 import Community from "./Community"
+import Search from "./Search"
 
 function Pages() {
   return (
@@ -19,6 +20,7 @@ function Pages() {
           <Route path="/create" element={<CreatePost />} />
           <Route path="/listcommunity" element={<ListCommunity />} />
           <Route path="/community" element={<Community />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
       </Router>
     </div>

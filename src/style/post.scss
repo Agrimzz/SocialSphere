@@ -1,164 +1,208 @@
 @import "./root.scss";
 
+.mainPost {
+  display: flex;
+  overflow-y: scroll;
+  height: 100vh;
 
-.mainPost{
+  .postbox {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0px 30px;
     display: flex;
-    overflow-y: scroll;
-    height: 100vh;
+    flex-direction: column;
+    align-items: center;
 
-    .postbox{
-        margin: 0 auto;
+    .post {
+      background-color: $primary;
+      width: 100%;
+      border-radius: 15px;
+      display: flex;
+      margin-top: 30px;
+      padding: 20px 40px;
+      flex-direction: column;
+      gap: 20px;
+
+      .pRow1 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .details {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 30px;
+
+          h3 {
+            font-size: $smallFont;
+          }
+
+          .postTime {
+            display: flex;
+            align-items: center;
+            width: 125px;
+            gap: 5px;
+
+            p {
+              font-size: $xsFont;
+            }
+          }
+
+          .comm {
+            color: $secondary;
+          }
+        }
+
+        .btns {
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+
+          button {
+            background-color: $secondary;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            outline: none;
+            border-radius: 5px;
+          }
+        }
+      }
+
+      p {
+        font-size: $mdFont;
+      }
+
+      .p-img {
         width: 100%;
-        padding: 0px 30px;
+      }
+
+      .pRow3 {
+        display: flex;
+        gap: 50px;
+        font-size: $xsFont;
+
+        .vote {
+          width: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background-color: $secondary;
+          padding: 10px;
+          color: #fff;
+          border-radius: 10px;
+
+          .like {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            .liked {
+              color: red;
+            }
+
+            p {
+              font-size: $xsFont;
+            }
+          }
+        }
+
+        .comment {
+          width: 120px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: $secondary;
+          padding: 10px;
+          color: #fff;
+          border-radius: 10px;
+
+          p {
+            font-size: $xsFont;
+          }
+        }
+      }
+
+      .makecomment {
+        width: 100%;
+        background-color: #fff;
+        padding: 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 15px;
+
+        input {
+          border: none;
+          outline: none;
+          width: 80%;
+          font-size: $mdFont;
+        }
+
+        .btn-comment {
+          background-color: $secondary;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+        }
+      }
+
+      .comments {
+        // background-color: #fff;
+        width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        gap: 10px;
+        border-radius: 15px;
+        // padding: 10px 15px;
 
-        .post{
-            background-color: $primary;
-            width: 100%;
-            border-radius: 15px;
+        .commentlist {
+          background-color: #fff;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          border-radius: 15px;
+          padding: 10px 15px;
+
+          .cmtdetails {
             display: flex;
-            margin-top: 30px;
-            padding: 20px 40px;
-            flex-direction: column;
-            gap: 20px;
+            justify-content: space-between;
 
-            .pRow1{
-                display: flex;
-                gap: 30px;
-                
-                h3{
-                    font-size: $smallFont;
-                }
-
-                .postTime{
-                    display: flex;
-                    align-items: center;
-                    width: 125px;
-                    gap: 5px;
-
-                    p{
-                        font-size: $xsFont;
-                    }
-                }
-
-                .comm{
-                    color: $secondary;
-                }
+            p {
+              font-size: $xsFont;
             }
+          }
 
-            p{
-                font-size: $mdFont;
-            }
+          h2 {
+            color: $secondary;
+            font-size: $mdFont;
+          }
 
-            .p-img{
-                width: 100%;
-            }
-
-            .pRow3{
-                display: flex;
-                gap: 50px;
-                font-size: $xsFont;
-
-                .vote{
-                    width: 80px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    background-color: $secondary;
-                    padding: 10px;
-                    color: #fff;
-                    border-radius: 10px;
-
-                    .like{
-                        display: flex;
-                        align-items: center;
-                        gap: 5px;
-
-                        p{
-                            font-size: $xsFont;
-                        }
-                    }
-                }
-
-                .comment{
-                    width: 120px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    background-color: $secondary;
-                    padding: 10px;
-                    color: #fff;
-                    border-radius: 10px;
-                    
-                    p{
-                        font-size: $xsFont;
-                    }
-                }
-                
-            }
-
-            .makecomment{
-                width: 100%;
-                background-color: #fff;
-                padding: 10px 15px;
-                display: flex;
-                justify-content: space-between;
-                border-radius: 15px;
-
-                input{
-                    border: none;
-                    outline: none;
-                    width: 80%;
-                    font-size: $mdFont;
-                }
-
-                .btn-comment{
-                    background-color: $secondary;
-                    color: #fff;
-                    padding: 10px 20px;
-                    border: none;
-                    border-radius: 5px;
-                }
-            }
-
-            .comments{
-                background-color: #fff;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                border-radius: 15px;
-                padding: 10px 15px;
-
-                h2{
-                    color: $secondary;
-                    font-size: $mdFont;
-                }
-
-                p{
-                    font-size: $smallFont;
-                }
-
-                .pRow3{
-
-                    .reply{
-                        width: 80px;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        background-color: $secondary;
-                        padding: 10px;
-                        color: #fff;
-                        border-radius: 10px;
-                        
-                        p{
-                            font-size: $xsFont;
-                        }
-                    }
-                }
-            }
+          p {
+            font-size: $smallFont;
+            margin-left: 5px;
+          }
         }
+
+        .pRow3 {
+          .reply {
+            width: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: $secondary;
+            padding: 10px;
+            color: #fff;
+            border-radius: 10px;
+
+            p {
+              font-size: $xsFont;
+            }
+          }
+        }
+      }
     }
+  }
 }
