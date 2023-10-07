@@ -33,10 +33,12 @@
     z-index: 10;
 
     .box {
+      // width: 750px;
       width: 750px;
       background-color: #fff;
       margin: auto auto;
-      padding: 50px 50px;
+      padding: 50px;
+      border-radius: 20px;
 
       form {
         display: flex;
@@ -72,6 +74,17 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .invis {
+    .createPost {
+      .box {
+        width: 400px;
+        padding: 20px;
       }
     }
   }

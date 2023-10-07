@@ -1,12 +1,11 @@
-import "../style/login.scss"
+import "../style/admin.scss"
 import logo from "../images/logo.png"
-import undraw from "../images/logimg.svg"
-import { Link } from "react-router-dom"
+import undraw from "../images/adminimg.svg"
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
-function Login() {
+function Adminlogin() {
   const navigate = useNavigate()
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
@@ -16,13 +15,13 @@ function Login() {
     formData.append("username", username)
     formData.append("password", password)
     axios
-      .post("http://localhost/SocialSphere/login.php", formData)
+      .post("http://localhost/SocialSphere/adminlog.php", formData)
       .then((response) => {
         console.log(response.data.result)
         if (response.data.result === "true") {
-          sessionStorage.setItem("uid", response.data.uid)
+          sessionStorage.setItem("aid", response.data.uid)
           sessionStorage.setItem("username", response.data.username)
-          navigate("/")
+          navigate("/dashboard")
         } else {
           alert("Username and Password do not match")
         }
@@ -30,11 +29,11 @@ function Login() {
   }
   return (
     <div className="wrapper">
-      <div className="log">
+      <div className="alog">
         <div className="logcred">
-          <h2>Welcome to</h2>
+          <h2>Admin Login</h2>
           <img src={logo} alt="" />
-          <p>Login to be a part of many communities that interest you</p>
+          {/* <p>Login to be a part of many communities that interest you</p> */}
 
           <form onSubmit={handleSubmit}>
             <input
@@ -52,21 +51,21 @@ function Login() {
               required
             />
             <button className="signin">Sign In</button>
-            <p>
+            {/* <p>
               Dont have an account?{" "}
               <strong>
                 <Link to="/register">Sign up Now</Link>
               </strong>
-            </p>
+            </p> */}
           </form>
         </div>
 
-        <div className="logimg">
+        {/* <div className="logimg">
           <img src={undraw} alt="" />
-        </div>
+        </div> */}
       </div>
     </div>
   )
 }
 
-export default Login
+export default Adminlogin

@@ -39,8 +39,8 @@ function CreatePost() {
       .then((response) => {
         console.log(response.data)
 
-        // navigate("/")
-        // window.location.reload()
+        navigate("/")
+        window.location.reload()
       })
   }
 

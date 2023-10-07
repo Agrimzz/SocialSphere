@@ -1,0 +1,127 @@
+@import "./root.scss";
+
+.wrapper {
+  background-color: $loginbg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .alog {
+    width: auto;
+    height: auto;
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+
+    .logcred {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      // justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      // width: 50%;
+      flex: 50%;
+      padding: 50px;
+      height: auto;
+      text-align: center;
+
+      h2 {
+        font-size: $xlFont;
+      }
+
+      p {
+        font-size: $mdFont;
+      }
+
+      input {
+        width: 100%;
+        outline: none;
+        border: 1px solid #000;
+        padding: 10px;
+        font-size: $mdFont;
+        margin-top: 20px;
+      }
+
+      .signin {
+        width: 100%;
+        margin-top: 20px;
+        background-color: $loginbg;
+        padding: 10px;
+        font-size: $mdFont;
+        border: none;
+      }
+    }
+
+    .logimg {
+      // width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $secondary;
+      padding: 50px;
+      height: 100%;
+      flex: 50%;
+      // width: 50%;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+// @media only screen and (max-width: 1500px) {
+//   .wrapper {
+//     .log {
+//       width: 700px;
+//       height: 40vh;
+
+//       .logcred {
+//         height: auto;
+//       }
+
+//       .logimg {
+//         display: none;
+//       }
+//     }
+//   }
+// }
+
+// @media only screen and (max-width: 700px) {
+//   .wrapper {
+//     .log {
+//       width: 400px;
+//       height: 40vh;
+
+//       .logcred {
+//         height: auto;
+//         padding: 50px 20px;
+//       }
+
+//       .logimg {
+//         display: none;
+//       }
+//     }
+//   }
+// }
+
+// @media only screen and (max-width: 400px) {
+//   .wrapper {
+//     .log {
+//       width: 100%;
+//       height: 40vh;
+
+//       .logcred {
+//         height: auto;
+//       }
+
+//       .logimg {
+//         display: none;
+//       }
+//     }
+//   }
+// }

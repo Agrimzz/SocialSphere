@@ -74,12 +74,7 @@ function ListCommunity() {
                       </button>
                     )}
                   </div>
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Harum inventore eius ullam non architecto fuga quis,
-                    asperiores facere. Officiis, odio. Iste, aliquam
-                    praesentium? Sint, iure!
-                  </p>
+                  <p>{item.cdesc}</p>
                   <div className="memberscount">
                     <p className="count">{item.count}</p>
                     <p>Members</p>

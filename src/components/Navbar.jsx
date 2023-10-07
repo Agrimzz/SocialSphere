@@ -30,10 +30,10 @@ function Navbar() {
         </div>
       </Link>
 
-      <div className="icons">
+      {/* <div className="icons">
         <img src={notification} alt="" />
         <p>Notifications</p>
-      </div>
+      </div> */}
     </div>
   )
 }

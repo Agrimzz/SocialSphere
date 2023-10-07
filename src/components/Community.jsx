@@ -64,8 +64,8 @@ function Community() {
             const month_num = created_at.getMonth()
             const day = created_at.getDate()
             const year = created_at.getFullYear()
-            const hour = created_at.getHours()
-            const min = created_at.getMinutes()
+            let hour = created_at.getHours()
+            let min = created_at.getMinutes()
             const monthNames = [
               "Jan",
               "Feb",
@@ -81,6 +81,9 @@ function Community() {
               "Dec",
             ]
             const month = monthNames[month_num]
+            hour = hour.toString().padStart(2, "0")
+
+            min = min.toString().padStart(2, "0")
             return (
               <Link
                 to={`/post?criteria=${item.pid}`}
@@ -105,7 +108,7 @@ function Community() {
                     <div className="pRow2">
                       <h2>{item.title}</h2>
                     </div>
-                    <div className="pRow3">
+                    {/* <div className="pRow3">
                       <div className="vote">
                         <div className="like">
                           <img src={like} alt="" />
@@ -117,7 +120,7 @@ function Community() {
                         <img src={comment} alt="" />
                         <p>12 comments</p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="postImage">

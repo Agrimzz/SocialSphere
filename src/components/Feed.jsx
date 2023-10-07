@@ -9,6 +9,7 @@ import comment from "../images/comment.svg"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import Post from "./Post"
 
 function Feed() {
   const [data, setData] = useState([])
@@ -47,8 +48,8 @@ function Feed() {
             const month_num = created_at.getMonth()
             const day = created_at.getDate()
             const year = created_at.getFullYear()
-            const hour = created_at.getHours()
-            const min = created_at.getMinutes()
+            let hour = created_at.getHours()
+            let min = created_at.getMinutes()
             const monthNames = [
               "Jan",
               "Feb",
@@ -64,6 +65,9 @@ function Feed() {
               "Dec",
             ]
             const month = monthNames[month_num]
+            hour = hour.toString().padStart(2, "0")
+
+            min = min.toString().padStart(2, "0")
             return (
               <Link
                 to={`/post?criteria=${item.pid}`}

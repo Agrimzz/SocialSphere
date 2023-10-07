@@ -42,8 +42,8 @@ function Post() {
   const month_num = created_at.getMonth()
   const day = created_at.getDate()
   const year = created_at.getFullYear()
-  const hour = created_at.getHours()
-  const min = created_at.getMinutes()
+  let hour = created_at.getHours()
+  let min = created_at.getMinutes()
   const monthNames = [
     "Jan",
     "Feb",
@@ -59,6 +59,9 @@ function Post() {
     "Dec",
   ]
   const month = monthNames[month_num]
+  hour = hour.toString().padStart(2, "0")
+
+  min = min.toString().padStart(2, "0")
 
   const handleEditPost = () => {
     var element = document.getElementById("invis")
@@ -256,10 +259,10 @@ function Post() {
                   <p className="count">{likes}</p>
                 </div>
               </div>
-              <div className="comment">
+              {/* <div className="comment">
                 <img src={comment} alt="" />
                 <p>2 comments</p>
-              </div>
+              </div> */}
             </div>
 
             <div className="makecomment">
@@ -291,7 +294,7 @@ function Post() {
             </div>
           </div>
         </div>
-        <Rightbar />
+        {/* <Rightbar /> */}
       </div>
     </>
   )

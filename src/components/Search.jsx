@@ -93,7 +93,7 @@ function Search() {
                     <div className="pRow2">
                       <h2>{item.title}</h2>
                     </div>
-                    <div className="pRow3">
+                    {/* <div className="pRow3">
                       <div className="vote">
                         <div className="like">
                           <img src={like} alt="" />
@@ -105,7 +105,7 @@ function Search() {
                         <img src={comment} alt="" />
                         <p>12 comments</p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="postImage">
