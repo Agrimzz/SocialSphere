@@ -48,7 +48,7 @@ function Feed() {
               No post available.
               <Link to="/listcommunity" className="highlight">
                 Join Community Now
-              </Link>{" "}
+              </Link>
               to view different posts.
             </p>
           ) : (
