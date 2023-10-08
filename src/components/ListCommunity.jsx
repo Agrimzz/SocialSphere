@@ -4,11 +4,21 @@ import "../style/feed.scss"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 function ListCommunity() {
   const [data, setData] = useState([])
   const uid = sessionStorage.getItem("uid")
   const [joinedCommunities, setJoinedCommunities] = useState([])
+
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (sessionStorage.getItem("uid") === null) {
+      alert("Login Required")
+      navigate("/login")
+    }
+  }, [])
+
   useEffect(() => {
     axios
       .post("http://localhost/SocialSphere/getcommunity.php")

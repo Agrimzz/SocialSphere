@@ -29,11 +29,6 @@ function Navbar() {
           <p>Communities</p>
         </div>
       </Link>
-
-      {/* <div className="icons">
-        <img src={notification} alt="" />
-        <p>Notifications</p>
-      </div> */}
     </div>
   )
 }

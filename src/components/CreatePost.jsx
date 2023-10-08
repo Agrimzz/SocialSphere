@@ -13,6 +13,12 @@ function CreatePost() {
   const [communities, setCommunities] = useState([])
 
   useEffect(() => {
+    if (sessionStorage.getItem("uid") === null) {
+      alert("Login Required")
+      navigate("/login")
+    }
+  }, [])
+  useEffect(() => {
     const formData = new FormData()
     formData.append("uid", sessionStorage.getItem("uid"))
     axios
@@ -41,6 +47,12 @@ function CreatePost() {
 
         navigate("/")
         window.location.reload()
+      })
+
+    axios
+      .post("http://localhost/SocialSphere/sendmail.php", formData)
+      .then((response) => {
+        console.log(response.data)
       })
   }
 

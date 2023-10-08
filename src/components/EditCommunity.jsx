@@ -61,12 +61,6 @@ function EditCommunity({ communityDetails }) {
               onChange={(e) => setDesc(e.target.value)}
               defaultValue={desc}
             ></textarea>
-            {/* <input
-              type="file"
-              name="image"
-              onChange={(e) => setImage(e.target.files[0])}
-              value={postDetails.img}
-            /> */}
             <button>Edit</button>
           </form>
         </div>

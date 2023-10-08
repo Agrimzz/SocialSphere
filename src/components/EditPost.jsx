@@ -7,20 +7,6 @@ function EditPost({ postDetails }) {
   const [title, setTitle] = useState(postDetails ? postDetails.title : "")
   const [desc, setDesc] = useState(postDetails ? postDetails.body : "")
 
-  // useEffect(() => {
-  //   const formData = new FormData()
-  //   formData.append("uid", sessionStorage.getItem("uid"))
-  //   axios
-  //     .post("http://localhost/SocialSphere/checkcommunity.php", formData)
-  //     .then((response) => {
-  //       setCommunities(response.data)
-  //       console.log(response.data)
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     })
-  // }, [])
-
   useEffect(() => {
     if (postDetails) {
       setTitle(postDetails.title)
@@ -78,12 +64,7 @@ function EditPost({ postDetails }) {
               onChange={(e) => setDesc(e.target.value)}
               value={postDetails ? desc : ""}
             ></textarea>
-            {/* <input
-              type="file"
-              name="image"
-              onChange={(e) => setImage(e.target.files[0])}
-              value={postDetails.img}
-            /> */}
+
             <button>Edit</button>
           </form>
         </div>

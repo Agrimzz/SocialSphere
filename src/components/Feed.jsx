@@ -2,14 +2,9 @@ import "../style/feed.scss"
 import Rightbar from "./Rightbar"
 import image from "../images/image.svg"
 import circle from "../images/circle.svg"
-// import img1 from "../images/img1.png"
-import like from "../images/like.svg"
-import dislike from "../images/dislike.svg"
-import comment from "../images/comment.svg"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import Post from "./Post"
 
 function Feed() {
   const [data, setData] = useState([])
@@ -45,10 +40,10 @@ function Feed() {
 
           {data.length === 0 ? (
             <p>
-              No post available.
+              No post available.{" "}
               <Link to="/listcommunity" className="highlight">
                 Join Community Now
-              </Link>
+              </Link>{" "}
               to view different posts.
             </p>
           ) : (

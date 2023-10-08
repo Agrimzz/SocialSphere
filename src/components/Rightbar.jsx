@@ -39,17 +39,6 @@ function Rightbar() {
           </Link>
         </div>
 
-        {/* <div className="tab2">
-          <h2>Top Communities</h2>
-          <ul>
-            <li>Football</li>
-            <li>AI</li>
-            <li>Food</li>
-            <li>Anime</li>
-            <li>Basketball</li>
-          </ul>
-        </div> */}
-
         <div className="tab3">
           <p>SocialSphere, 2023. All rights reserved.</p>
         </div>

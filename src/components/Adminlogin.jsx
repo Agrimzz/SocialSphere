@@ -1,6 +1,5 @@
 import "../style/admin.scss"
 import logo from "../images/logo.png"
-import undraw from "../images/adminimg.svg"
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
@@ -33,7 +32,6 @@ function Adminlogin() {
         <div className="logcred">
           <h2>Admin Login</h2>
           <img src={logo} alt="" />
-          {/* <p>Login to be a part of many communities that interest you</p> */}
 
           <form onSubmit={handleSubmit}>
             <input
@@ -51,18 +49,8 @@ function Adminlogin() {
               required
             />
             <button className="signin">Sign In</button>
-            {/* <p>
-              Dont have an account?{" "}
-              <strong>
-                <Link to="/register">Sign up Now</Link>
-              </strong>
-            </p> */}
           </form>
         </div>
-
-        {/* <div className="logimg">
-          <img src={undraw} alt="" />
-        </div> */}
       </div>
     </div>
   )

@@ -70,7 +70,7 @@ function DashboardCommunity() {
       })
   }
   useEffect(() => {
-    console.log(cdata) // Log cdata whenever it changes
+    console.log(cdata)
   }, [cdata])
 
   function handleEdit(item) {

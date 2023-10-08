@@ -2,17 +2,23 @@ import "../style/feed.scss"
 import Rightbar from "./Rightbar"
 import search from "../images/search.svg"
 import circle from "../images/circle.svg"
-import like from "../images/like.svg"
-import dislike from "../images/dislike.svg"
-import comment from "../images/comment.svg"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import Navbar from "./Navbar"
+import { useNavigate } from "react-router-dom"
 
 function Search() {
   const [data, setData] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
+
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (sessionStorage.getItem("uid") === null) {
+      alert("Login Required")
+      navigate("/login")
+    }
+  }, [])
 
   useEffect(() => {
     const formData = new FormData()
@@ -93,19 +99,6 @@ function Search() {
                     <div className="pRow2">
                       <h2>{item.title}</h2>
                     </div>
-                    {/* <div className="pRow3">
-                      <div className="vote">
-                        <div className="like">
-                          <img src={like} alt="" />
-                          <p className="count">25</p>
-                        </div>
-                        <img src={dislike} alt="" />
-                      </div>
-                      <div className="comment">
-                        <img src={comment} alt="" />
-                        <p>12 comments</p>
-                      </div>
-                    </div> */}
                   </div>
 
                   <div className="postImage">

@@ -3,14 +3,11 @@ import circle from "../images/circle.svg"
 import "../style/post.scss"
 import liked from "../images/liked.svg"
 import like from "../images/like.svg"
-import dislike from "../images/dislike.svg"
-import comment from "../images/comment.svg"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import axios from "axios"
 import { useState } from "react"
-import Rightbar from "./Rightbar"
 import EditPost from "./EditPost"
 
 function Post() {
@@ -199,6 +196,26 @@ function Post() {
     fetchComments()
   }, [])
 
+  const handleDeleteComment = (cmid) => {
+    var formData = new FormData()
+    formData.append("cmid", cmid)
+    console.log(cmid)
+    axios
+      .post("http://localhost/SocialSphere/deletecomment.php", formData)
+      .then((response) => {
+        console.log(response.data)
+        if (response.data.success) {
+          console.log("Comment deleted successfully")
+          fetchComments()
+        } else {
+          console.error("Failed to delete comment")
+        }
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
+
   return (
     <>
       <EditPost postDetails={data} />
@@ -259,10 +276,6 @@ function Post() {
                   <p className="count">{likes}</p>
                 </div>
               </div>
-              {/* <div className="comment">
-                <img src={comment} alt="" />
-                <p>2 comments</p>
-              </div> */}
             </div>
 
             <div className="makecomment">
@@ -278,23 +291,37 @@ function Post() {
             </div>
 
             <div className="comments">
-              {comments.map((comment, index) => (
-                <div key={{ index }} className="commentlist">
-                  <div className="cmtdetails">
-                    <h2>{comment.username}</h2>
-                    <p>
-                      <strong>Commented at : </strong>
-                      {comment.time}
-                    </p>
-                  </div>
+              {comments.map((comment, index) => {
+                return (
+                  <div key={index} className="commentlist">
+                    <div className="cmtdetails">
+                      <h2>{comment.username}</h2>
+                      <div>
+                        <p>
+                          <strong>Commented at : </strong>
+                          {comment.time}
+                        </p>
+                        {comment.username ===
+                          sessionStorage.getItem("username") && (
+                          <div className="btns">
+                            <button
+                              onClick={() => handleDeleteComment(comment.cmid)}
+                              className="btn-delete-post"
+                            >
+                              Delete Comment
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
 
-                  <p>{comment.text}</p>
-                </div>
-              ))}
+                    <p>{comment.text}</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
-        {/* <Rightbar /> */}
       </div>
     </>
   )

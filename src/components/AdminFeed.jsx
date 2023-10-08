@@ -1,27 +1,3 @@
-// import AdminHead from "./AdminHead"
-// import AdminNav from "./AdminNav"
-// import DashboardCommunity from "./DashboardCommunity"
-// import DashboardHome from "./DashboardHome"
-// import DashboardPost from "./DashboardPost"
-// import DashboardUsers from "./DashboardUsers"
-
-// function AdminFeed() {
-//   return (
-//     <div className="awrapper">
-//       <AdminNav />
-//       <div className="flexcol">
-//         <AdminHead />
-//         <DashboardHome />
-//         <DashboardUsers />
-//         <DashboardPost />
-//         <DashboardCommunity />
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default AdminFeed
-
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"

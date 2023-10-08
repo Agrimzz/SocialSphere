@@ -5,9 +5,6 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import circle from "../images/circle.svg"
-import like from "../images/like.svg"
-import dislike from "../images/dislike.svg"
-import comment from "../images/comment.svg"
 
 function Community() {
   const navigate = useNavigate()
@@ -108,19 +105,6 @@ function Community() {
                     <div className="pRow2">
                       <h2>{item.title}</h2>
                     </div>
-                    {/* <div className="pRow3">
-                      <div className="vote">
-                        <div className="like">
-                          <img src={like} alt="" />
-                          <p className="count">25</p>
-                        </div>
-                        <img src={dislike} alt="" />
-                      </div>
-                      <div className="comment">
-                        <img src={comment} alt="" />
-                        <p>12 comments</p>
-                      </div>
-                    </div> */}
                   </div>
 
                   <div className="postImage">
