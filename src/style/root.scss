@@ -12,3 +12,12 @@ $largeFont: 20px;
 $mdFont: 16px;
 $smallFont: 14px;
 $xsFont: 12px;
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:visited {
+  color: #000;
+}

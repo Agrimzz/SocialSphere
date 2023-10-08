@@ -10,6 +10,7 @@ function Login() {
   const navigate = useNavigate()
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
+  const [message, setMessage] = useState()
   const handleSubmit = (event) => {
     event.preventDefault()
     const formData = new FormData()
@@ -18,13 +19,13 @@ function Login() {
     axios
       .post("http://localhost/SocialSphere/login.php", formData)
       .then((response) => {
-        console.log(response.data.result)
-        if (response.data.result === "true") {
+        console.log(response.data.message)
+        if (response.data.success) {
           sessionStorage.setItem("uid", response.data.uid)
           sessionStorage.setItem("username", response.data.username)
           navigate("/")
         } else {
-          alert("Username and Password do not match")
+          setMessage(response.data.message)
         }
       })
   }
@@ -35,7 +36,7 @@ function Login() {
           <h2>Welcome to</h2>
           <img src={logo} alt="" />
           <p>Login to be a part of many communities that interest you</p>
-
+          <label htmlFor="message">{message}</label>
           <form onSubmit={handleSubmit}>
             <input
               type="text"

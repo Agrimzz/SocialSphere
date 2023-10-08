@@ -14,6 +14,11 @@
     align-items: center;
     gap: 30px;
 
+    .highlight {
+      text-decoration: underline;
+      color: $secondary;
+    }
+
     .makePosts {
       width: 100%;
       background-color: $primary;

@@ -135,7 +135,7 @@ function DashboardCommunity() {
                 <td>{item.count}</td>
 
                 <td>
-                  <button onClick={() => handleEdit(item.cid)}>Edit</button>
+                  <button onClick={() => handleEdit(item)}>Edit</button>
                   <button onClick={() => handleDelete(item.cid)}>Delete</button>
                 </td>
               </tr>

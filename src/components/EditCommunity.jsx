@@ -20,15 +20,15 @@ function EditCommunity({ communityDetails }) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    console.log(title, desc, communityDetails.cid)
     let formData = new FormData()
     formData.append("title", title)
     formData.append("desc", desc)
     formData.append("cid", communityDetails.cid)
     axios
-      .post("http://localhost/SocialSphere/edit.php", formData)
+      .post("http://localhost/SocialSphere/editcommunity.php", formData)
       .then((response) => {
         console.log(response.data)
-        // navigate("/")
         window.location.reload()
       })
   }

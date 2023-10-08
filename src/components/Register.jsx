@@ -11,6 +11,8 @@ function Register() {
   const [email, setEmail] = useState({})
   const [password, setPassword] = useState({})
   const [cpassword, setCpassword] = useState({})
+  const [message, setMessage] = useState()
+  const [pMessage, setPMessage] = useState()
 
   const navigate = useNavigate()
 
@@ -22,15 +24,29 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    let formData = new FormData()
-    formData.append("username", username)
-    formData.append("email", email)
-    formData.append("password", password)
-    formData.append("cpassword", cpassword)
-    axios.post("http://localhost/SocialSphere/register.php", formData)
-    console.log(formData)
-
-    navigate("/login")
+    if (password !== cpassword) {
+      setPMessage("Password do not match")
+    } else {
+      let formData = new FormData()
+      formData.append("username", username)
+      formData.append("email", email)
+      formData.append("password", password)
+      formData.append("cpassword", cpassword)
+      axios
+        .post("http://localhost/SocialSphere/register.php", formData)
+        .then((response) => {
+          console.log(response.data)
+          if (response.data.success) {
+            alert(response.data.message)
+            navigate("/login")
+          } else if (response.data.key == 1) {
+            console.log(response.data)
+            setMessage(response.data.message)
+          } else {
+            setMessage(response.data.message)
+          }
+        })
+    }
   }
 
   return (
@@ -42,6 +58,7 @@ function Register() {
           <p>Login to be a part of many communities that interest you</p>
 
           <form onSubmit={handleSubmit}>
+            <label htmlFor="message">{message}</label>
             <input
               type="text"
               placeholder="Username"
@@ -49,12 +66,15 @@ function Register() {
               onChange={(e) => setUsername(e.target.value)}
               required
             />
+
             <input
-              type="text"
+              type="email"
               placeholder="Email"
               name="email"
               onChange={(e) => setEmail(e.target.value)}
             />
+
+            <label htmlFor="message">{pMessage}</label>
             <input
               type="password"
               placeholder="Password"
@@ -69,6 +89,7 @@ function Register() {
               onChange={(e) => setCpassword(e.target.value)}
               required
             />
+
             <button className="signin">Sign Up</button>
             <p>
               Already have an account?{" "}

@@ -26,7 +26,7 @@ function Community() {
         if (response.data.success) {
           setData(response.data.data)
         } else {
-          alert("invalid")
+          alert("You need to join the community first.")
           navigate("/listcommunity")
         }
       })

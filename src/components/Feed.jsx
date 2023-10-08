@@ -43,80 +43,77 @@ function Feed() {
             {/* </div> */}
           </div>
 
-          {data.map((item) => {
-            const created_at = new Date(item.time)
-            const month_num = created_at.getMonth()
-            const day = created_at.getDate()
-            const year = created_at.getFullYear()
-            let hour = created_at.getHours()
-            let min = created_at.getMinutes()
-            const monthNames = [
-              "Jan",
-              "Feb",
-              "Mar",
-              "Apr",
-              "May",
-              "Jun",
-              "Jul",
-              "Aug",
-              "Sep",
-              "Oct",
-              "Nov",
-              "Dec",
-            ]
-            const month = monthNames[month_num]
-            hour = hour.toString().padStart(2, "0")
+          {data.length === 0 ? (
+            <p>
+              No post available.
+              <Link to="/listcommunity" className="highlight">
+                Join Community Now
+              </Link>{" "}
+              to view different posts.
+            </p>
+          ) : (
+            data.map((item) => {
+              const created_at = new Date(item.time)
+              const month_num = created_at.getMonth()
+              const day = created_at.getDate()
+              const year = created_at.getFullYear()
+              let hour = created_at.getHours()
+              let min = created_at.getMinutes()
+              const monthNames = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+              ]
+              const month = monthNames[month_num]
+              hour = hour.toString().padStart(2, "0")
+              min = min.toString().padStart(2, "0")
 
-            min = min.toString().padStart(2, "0")
-            return (
-              <Link
-                to={`/post?criteria=${item.pid}`}
-                key={item.pid}
-                className="post"
-              >
-                <div className="post">
-                  <div className="postTexts">
-                    <div className="pRow1">
-                      <h3>{item.username}</h3>
-                      <div className="postTime">
-                        <img src={circle} alt="" />
-                        <p>
-                          <strong>
-                            {hour}:{min}
-                          </strong>{" "}
-                          - {day} {month} {year}{" "}
-                        </p>
-                      </div>
-                      <h3 className="comm">{item.community}</h3>
-                    </div>
-                    <div className="pRow2">
-                      <h2>{item.title}</h2>
-                    </div>
-                    {/* <div className="pRow3">
-                      <div className="vote">
-                        <div className="like">
-                          <img src={like} alt="" />
-                          <p className="count">25</p>
+              return (
+                <Link
+                  to={`/post?criteria=${item.pid}`}
+                  key={item.pid}
+                  className="post"
+                >
+                  <div className="post">
+                    <div className="postTexts">
+                      <div className="pRow1">
+                        <h3>{item.username}</h3>
+                        <div className="postTime">
+                          <img src={circle} alt="" />
+                          <p>
+                            <strong>
+                              {hour}:{min}
+                            </strong>{" "}
+                            - {day} {month} {year}{" "}
+                          </p>
                         </div>
-                        <img src={dislike} alt="" />
+                        <h3 className="comm">{item.community}</h3>
                       </div>
-                      <div className="comment">
-                        <img src={comment} alt="" />
-                        <p>12 comments</p>
+                      <div className="pRow2">
+                        <h2>{item.title}</h2>
                       </div>
-                    </div> */}
-                  </div>
+                    </div>
 
-                  <div className="postImage">
-                    <img
-                      src={`http://localhost/SocialSphere/images/${item.image}`}
-                      alt=""
-                    />
+                    <div className="postImage">
+                      <img
+                        src={`http://localhost/SocialSphere/images/${item.image}`}
+                        alt=""
+                      />
+                    </div>
                   </div>
-                </div>
-              </Link>
-            )
-          })}
+                </Link>
+              )
+            })
+          )}
         </div>
         <Rightbar />
       </div>
